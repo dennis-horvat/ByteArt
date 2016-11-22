@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHECK!</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+</head>
+<style>
+
+input[placeholder] {
+  font-style:normal;
+  font-size: 13pt;
+  font-family: "Brandon Grotesque";
+  color: grey;
+}
+
+input[type=text] {
+    border-radius: 8px;
+    width: 200px;
+    padding: 10px;
+    margin: 5px 0px 0px 0px;
+    display: inline-block;
+    border: 2px solid #8da6d6;
+    height: 40px;
+    color: #001a3a;
+    font-size: 13px;
+    font-family: "Roberto";
+}
+
+input[type=password] {
+    border-radius: 8px;
+    width: 200px;
+    padding: 10px;
+    margin: 2px 0px 2px 0px;
+    display: inline-block;
+    border: 2px solid #8da6d6;
+    height: 40px;
+    color: #001a3a;
+    font-size: 13px;
+    font-family: "Roberto";
+}
+
+button {
+    background-color: #001a3a;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+    width: 150px;
+    border-radius: 8px;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 5px 0;
+}
+
+img.avatar {
+    width: 400px;
+}
+
+.container1 {
+    text-align: center;
+    padding: 16px;
+}
+
+.container2 {
+    text-align: center;
+    padding: 16px;
+}
+
+.psw {
+    font-size: 13px;
+    color: #8da6d6;
+}
+
+.footer {
+  text-align: center;
+  font-size: 9px;
+  color: #8da6d6;
+}
+
+#footerhead {
+  color: #001a3a;
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+
+}
+</style>
+<body>
+
+<form action="action_page.php">
+  <div class="imgcontainer">
+    <img src="img\login\header.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container1">
+    <input type="text" placeholder="BENUTZERNAME" name="uname" required>
+    <br>
+    <input type="password" placeholder="PASSWORD" name="psw" required>
+    <br>
+    <button type="submit">LOS!</button>
+  </div>
+
+  <div class="container2">
+    <span class="psw">Sie m&oumlchten mit CHECK! arbeiten?
+    <br>
+    <a href="#">Jetzt registieren.</a></span>
+  </div>
+
+  <div class="footer">
+    <img src="img\login\footer.png">
+    <p id="footerhead">edition 2016 dark night blue 1.0</p>
+    <p>CHECK! und CHECK! Lehrerzimmer sind Produkte des Raup&Ritter Verlag und der OnWerk Softwareagentur Mannheim</p>
+    <p>www.raupundritter.com - Kontakt - Impressum - Preise - Hilfe</p>
+  </div>
+
+</form>
+
+</body>
+</html>
