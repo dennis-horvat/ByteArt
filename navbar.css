@@ -7,7 +7,6 @@
     display: inline-block;
 }
 
-/* definiert gesamtes Dropdown Menu */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -37,13 +36,12 @@
 }
 
 .Dropdown-Header-Picture {
-  height: 70px;
-  width: 70px;
-  margin-top: 7px;
-  margin-left: 7px;
+  height: 60px;
+  width: 60px;
+  margin-top: 10px;
+  margin-left: 5px;
 }
 
-/* passt Text im Dropdown-Header an */
 .Dropdown-Header1 {
   text-align: left;
   font-size: 13pt;
@@ -79,6 +77,21 @@
   background-size: 140px;
 }
 
+.dropdown-content:before {
+     position: absolute;
+     content:"";
+     width: 10px;
+     height: 10px;
+     top: -5px;
+     right: 14px;
+     background: #000;
+     -webkit-transform: rotate(45deg);
+     -moz-transform: rotate(45deg);
+     -o-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+     transform: rotate(45deg);
+}
+
 #chapter-overview{
   background-image: url(img/chapterOverview-inactive.png);
 }
@@ -105,14 +118,10 @@
 
 #student{
   background-image: url(img/student/superhero-robin-active.png);
-  filter: contrast(60%);
-  filter: brightness(80%);
 }
 
 #student:hover{
   background-image: url(img/student/superhero-robin-active.png);
-    filter: contrast(100%);
-    filter: brightness(100%);
 }
 
 #school{
