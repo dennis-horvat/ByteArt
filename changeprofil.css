@@ -1,0 +1,32 @@
+#space40 {
+  height: 40px;
+}
+
+.flex-container {
+
+    display: -webkit-flex;
+    display: flex;
+    width: 720px;
+    height: 500px;
+    flex-wrap: wrap;
+
+}
+
+.flex-item {
+
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+}
+
+button {
+    background-color: #001a3a;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+    width: 150px;
+    border-radius: 8px;
+}

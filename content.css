@@ -1,0 +1,22 @@
+
+#containerMid {
+  z-index: 2;
+}
+#containerLeft {
+  z-index: 1;
+}
+#containerRight {
+  z-index: 1;
+}
+
+@media (max-width: 1200px) {
+  #containerLeft {
+  display: none !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  #containerRight {
+  display: none !important;
+  }
+}
