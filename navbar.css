@@ -1,7 +1,10 @@
 .navbar {
   background-color: #001a3a;
+  z-index: 10;
 }
-
+.col-xs-4{
+  background-color: #EE7BA9;
+}
 .dropdown {
     position: relative;
     display: inline-block;

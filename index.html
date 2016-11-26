@@ -2,12 +2,14 @@
 <html lang="de">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <link rel="icon" href="/favicon.ico">
     <title>CHECK!</title>
 
     <link rel="stylesheet" href="style.css" media="screen" >
     <link rel="stylesheet" href="navbar.css" media="screen" >
+    <link rel="stylesheet" href="content.css" media="screen" >
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" media="screen">
@@ -15,20 +17,29 @@
   </head>
   <body>
 
-    <nav class="navbar" id="header">
+<!-- Navigationsleiste oben-->
+    <nav class="navbar navbar-default" role="navigation" id="header">
       <section class="container-fluid">
         <div class="row flex-items-xs-between">
-
+<!-- Elemente links-->
           <div class="col-xs-2">
+
             <div class="dropdown">
               <button type="button" class="nav-item " id="chapter-overview"></button>
+
+
               <button type="button" class="nav-item " id="educational-plan"></button>
+
+
               <button type="button" class="nav-item " id="achieved-competences"></button>
+
+
+
             </div>
           </div>
-
+<!-- Logo mitte-->
           <div class="col-xs-3 float-xs-right text-xs-right">
-
+<!-- Elemente rechts -->
             <div class="dropdown">
               <button type="button" class="nav-item " id="student"></button>
               <div class="dropdown-content">
@@ -43,7 +54,7 @@
                   20. September 2008
                 </div>
               </div>
-                <a href="#">Mein Profilbild ändern</a>
+                <a href="changeprofil.html">Mein Profilbild ändern</a>
                 <a href="#">Mein Passwort ändern</a>
                 <a href="#">Mein Profil löschen</a>
               </div>
@@ -65,10 +76,28 @@
 
               <button type="button" class="nav-item" id="studyGroup"></button>
 
+<!-- Trennstrich-->
               <div class="split">
               </div>
 
+              <div class="dropdown">
               <button type="button" class="nav-item" id="help"></button>
+                <div class="dropdown-content">
+                  <div class="dropdown-header">
+                    <div class="row">
+                      <img src="img/help-big.png" class=col-xs-5 Dropdown-Header-Picture/>
+                      <p class="col-xs-7 Dropdown-Header1">
+                        BRAUCHST<br/>DU HILFE?
+                      </p>
+                    </div>
+                </div>
+                  <a href="#">SO GEHT'S!</a>
+                  <a href="#">VIDEO TUTORIALS</a>
+                  <a href="#">HÄUFIG GESTELLTE FRAGEN</a>
+                  <a href="#">KONTAKT</a>
+                </div>
+              </div>
+
 
               <div class="dropdown">
               <button type="button" class="nav-item" id="logout"></button>
@@ -90,8 +119,32 @@
         </div>
       </section>
     </nav>
+<!-- Seiteninhalt speechbubbles-->
 
 
+    <div class="col-xs-4" id="containerLeft">
+      <img src="img/illustrations/illustrationLeft.png" alt="illustrationLeft">
+
+    </div>
+
+
+    <div class="col-xs-4" id="containerMid">
+      <img src="img/contentTextBubble.png">
+      <img src="img/contentTextBubble.png">
+      <img src="img/contentTextBubble.png">
+      <img src="img/contentTextBubble.png">
+      <img src="img/contentTextBubble.png">
+      <img src="img/contentTextBubble.png">
+
+    </div>
+
+    <div class="col-xs-4" id="containerRight">
+      <img src="img/illustrations/illustrationRight.png" alt="illustrationRight">
+
+    </div>
+
+
+<!-- fusszeile-->
 
     <div class="footer">
       <img id="logo" src="img\logo.png">
