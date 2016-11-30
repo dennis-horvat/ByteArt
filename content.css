@@ -1,6 +1,6 @@
 
 #containerMid {
-  z-index: 2;
+  z-index: 5;
 }
 #containerLeft {
   z-index: 1;
@@ -8,15 +8,14 @@
 #containerRight {
   z-index: 1;
 }
-
 @media (max-width: 1200px) {
   #containerLeft {
-  display: none !important;
+  visibility: hidden;
   }
 }
 
 @media (max-width: 1200px) {
   #containerRight {
-  display: none !important;
+  visibility: hidden;
   }
 }
