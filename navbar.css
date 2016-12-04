@@ -164,3 +164,38 @@
 #logout:hover{
   background-image: url(img/logout-active.png);
 }
+
+/* dropdown menü farben*/
+
+#K1 { background-color: #79ab2e; }
+#K1:hover { background-color: #alc153; }
+#K2 { background-color: #c6d54f; }
+#K2:hover { background-color: #dbe283; }
+#K3 { background-color: #94c122; }
+#K3:hover { background-color: #bad151; }
+#K4 { background-color: #44b284; }
+#K4:hover { background-color: #7cc3a3; }
+#K5 { background-color: #ffdd00; }
+#K5:hover { background-color: #ffea64; }
+#K6 { background-color: #ffed98; }
+#K6:hover { background-color: #fff3d8; }
+#K7 { background-color: #fbb900; }
+#K7:hover { background-color: #ffcf53; }
+#K8 { background-color: #ef7d25; }
+#K8:hover { background-color: #f5a04c; }
+#K9 { background-color: #d60d66; }
+#K9:hover { background-color: #e35184; }
+#K10 { background-color: #ea518d; }
+#K10:hover { background-color: #ee7ba9; }
+#K11 { background-color: #f29db7; }
+#K11:hover { background-color: #f7bed2; }
+#K12 { background-color: #a62068; }
+#K12:hover { background-color: #c9427e; }
+#K13 { background-color: #008fc8; }
+#K13:hover { background-color: #4fa8da; }
+#K14 { background-color: #62c2d0; }
+#K14:hover { background-color: #94d3e5; }
+#K15 { background-color: #004077; }
+#K15:hover { background-color: #005daa; }
+#K16 { background-color: #3873b9; }
+#K16:hover { background-color: #658bc8; }
