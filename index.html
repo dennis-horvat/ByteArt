@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="de" ng-app="app">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" media="screen">
     <!-- Angularjs-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="app.js"></script>
 
   </head>
   <body>
@@ -150,18 +151,18 @@
     </div>
 
 
-    <div class="col-xs-4" id="containerMid">
+      <div class="col-xs-4" id="containerMid" ng-app="app" ng-controller="MainController">
+        <div class="speechbubble" ng-repeat="daten in datenJS">
+          <div class="bubble-text col-xs-12">
+              <p>
+                <span>{{daten.text}}</span>
+              </p>
+          </div>
+          <img ng-src="{{daten.image}}" alt="smallimg" class="bubble-img" />
+        </div>
 
+      </div>
 
-
-      <img src="img/contentTextBubble.png">
-      <img src="img/contentTextBubble.png">
-      <img src="img/contentTextBubble.png">
-      <img src="img/contentTextBubble.png">
-      <img src="img/contentTextBubble.png">
-      <img src="img/contentTextBubble.png">
-
-    </div>
 
     <div class="col-xs-4">
       <img src="img/illustrations/illustrationRight.png" alt="illustrationRight" id="containerRight">
