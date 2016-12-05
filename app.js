@@ -26,7 +26,19 @@ app.controller('MainController', ['$scope', function($scope) {
   {
     text: "06 - Test tralalalalala",
     image: "img/chapter01/competenceUndone.png"
-  }
+  },
+  {
+    text: "07 - Test tralalalalala",
+    image: "img/chapter01/competenceUndone.png"
+  },
+  {
+    text: "08 - Test tralalalalala",
+    image: "img/chapter01/competenceUndone.png"
+  },
+  {
+    text: "09 - Test tralalalalala",
+    image: "img/chapter01/competenceUndone.png"
+  },
 
 
 
