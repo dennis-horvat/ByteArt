@@ -1,138 +1,200 @@
-
-<!-- Navigationsleiste oben-->
-    <nav class="navbar navbar-default" role="navigation" id="header">
-      <section class="container-fluid">
-        <div class="row flex-items-xs-between">
-<!-- Elemente links-->
-          <div class="col-xs-2">
-
-            <div class="dropdown ">
-              <button type="button" class="nav-item" id="chapter-overview"></button>
+<nav class="navbar navbar-fixed-top" id="header">
+  <section class="container-fluid">
+    <section class="row flex-items-xs-between">
+      <!-- Buttons links -->
+      <section class="col-xs-2">
 
 
-                <div class="dropdown-content1">
-                  <div class="dropdown-header">
-                    <div class="row">
-                      <img src="img/confirmation.png" class=col-xs-5 Dropdown-Header-Picture/>
-                      <div class=".Dropdown-Header1">
-                        CHECK!<br/>KOMPETENZENLISTE
-                      </div>
-                    </div>
+        <!-- Button Kapitelübersicht + Dropdown-Menu -->
+        <div class="dd">
+          <button type="button" class="nav-button " id="chapter-overview"></button>
+          <div class="dd-content dd-height" id="dd-chapter-overview">
+            <section class="dd-header">
+              <section class="row">
+                <img src="../../../images/confirmation.png" class="col-xs-5 dd-header-picture" />
+                <p class="dd-header-text-1 col-xs-7">
+                  CHECK!<br>KOMPETENZLISTE
+                </p>
 
-                <!--<div class="dropdown-menu scrollable-menu">-->
-                  <a href="#" id="K1">DAS BIN ICH!</a>
-                  <a href="#" id="K2">ICH UND DIE ANDEREN</a>
-                  <a href="#" id="K3">DIE WELT UM MICH HERUM</a>
-                  <a href="#" id="K4">ICH WERDE SELBSTSTÄNDIG</a>
-                  <a href="#" id="K5">SICH BEWEGEN</a>
-                  <a href="#" id="K6">LERNEN</a>
-                  <a href="#" id="K7">ARBEITEN</a>
-                  <a href="#" id="K8">GESTALTEN UND ERSCHAFFEN</a>
-                  <a href="#" id="K9">SPRECHEN</a>
-                  <a href="#" id="K10">FREMDSPRACHE</a>
-                  <a href="#" id="K11">LESEN</a>
-                  <a href="#" id="K12">SCHREIBEN</a>
-                  <a href="#" id="K13">MESSEN</a>
-                  <a href="#" id="K14">LÖSUNGEN FINDEN</a>
-                  <a href="#" id="K15">ZÄHLEN UND RECHNEN</a>
-                  <a href="#" id="K16">FORM UND RAUM ENTDECKEN</a>
-                <!--</div>-->
 
-            </div>
+              </section>
+            </section>
+            <section class="dd-scrollable">
+              <a href="#" class="ch00 ch01">DAS BIN ICH!</a>
+              <a href="#" class="ch00 ch02">ICH UND DIE ANDEREN</a>
+              <a href="#" class="ch00 ch03">DIE WELT UM MICH HERUM</a>
+              <a href="#" class="ch00 ch04">ICH WERDE SELBSTSTÄNDIG</a>
+              <a href="#" class="ch00 ch05">SICH BEWEGEN</a>
+              <a href="#" class="ch00 ch06">LERNEN</a>
+              <a href="#" class="ch00 ch07">ARBEITEN</a>
+              <a href="#" class="ch00 ch08">GESTALTEN UND ERSCHAFFEN</a>
+              <a href="#" class="ch00 ch09">SPRECHEN</a>
+              <a href="#" class="ch00 ch10">FREMDSPRACHE</a>
+              <a href="#" class="ch00 ch11">LESEN</a>
+              <a href="#" class="ch00 ch12">SCHREIBEN</a>
+              <a href="#" class="ch00 ch13">MESSEN</a>
+              <a href="#" class="ch00 ch14">LÖSUNGEN FINDEN</a>
+              <a href="#" class="ch00 ch15">ZÄHLEN UND RECHNEN</a>
+              <a href="#" class="ch00 ch16">FORM UND RAUM ENTDECKEN</a>
+            </section>
           </div>
         </div>
 
-            <div class="dropdown">
-              <button type="button" class="nav-item " id="educational-plan"></button>
-            </div>
-
-            <div class="dropdown">
-              <button type="button" class="nav-item " id="achieved-competences"></button>
-            </div>
+        <!-- Button Förderplan + Dropdown-Menu -->
+        <div class="dd">
+          <button type="button" class="nav-button " id="educational-plan"></button>
+          <div class="dd-content" id="dd-educational-plan">
+            <section class="dd-header">
+              <section class="row">
+                <img src="../../../images/educationalPlan-big.png" class="col-xs-5 dd-header-picture" />
+                <p class="col-xs-7 dd-header-text-1">
+                  FÖRDERPLAN<br>MATHE ZR BIS 10
+                </p>
+              </section>
+            </section>
+            <a href="#">MATHE ZR BIS 10</a>
+            <a href="#">DEUTSCH SATZANFÄNGE</a>
+            <a href="#">SACHKUNDE "DER WALD"</a>
           </div>
+        </div>
 
-<!-- Logo mitte-->
-          <div class="col-xs-3 float-xs-right text-xs-right">
-<!-- Elemente rechts -->
-            <div class="dropdown">
-              <button type="button" class="nav-item " id="student"></button>
-              <div class="dropdown-content2">
-                <div class="dropdown-header">
-                  <div class="row">
-                    <img src="img/student/superhero-robin-big-active.png" class=col-xs-5 Dropdown-Header-Picture/>
-                    <div class=".Dropdown-Header1">
-                      Schüler<br/>Name
-                    </div>
-                  </div>
-                  <div class=".Dropdown-Header2">
-                  20. September 2008
-                </div>
-              </div>
-                <a href="changeprofil.html">Mein Profilbild ändern</a>
-                <a href="#">Mein Passwort ändern</a>
-                <a href="#">Mein Profil löschen</a>
-              </div>
-            </div>
-
-              <div class="dropdown">
-              <button type="button" class="nav-item" id="school"></button>
-              <div class="dropdown-content2">
-                <div class="dropdown-header">
-                  <div class="row">
-                    <img src="img/school/school-green-big-active.png" class=col-xs-5 Dropdown-Header-Picture/>
-                    <div class=".Dropdown-Header1">
-                      Astrid-<br/>Lindgren-<br>Schule
-                    </div>
-                  </div>
-                  <div class=".Dropdown-Header2">
-                  STRASSE NR<br>PLZ ORT<br>LAND<br><br>EMAIL<br>TELEFON
-                </div>
-                </div>
-              </div>
-              </div>
-
-              <button type="button" class="nav-item" id="studyGroup"></button>
-
-<!-- Trennstrich-->
-              <div class="split">
-              </div>
-
-              <div class="dropdown">
-              <button type="button" class="nav-item" id="help"></button>
-                <div class="dropdown-content2">
-                  <div class="dropdown-header">
-                    <div class="row">
-                      <img src="img/help-big.png" class=col-xs-5 Dropdown-Header-Picture/>
-                      <div class=".Dropdown-Header1">
-                        BRAUCHST<br/>DU HILFE?
-                      </div>
-                    </div>
-                </div>
-                  <a href="#">SO GEHT'S!</a>
-                  <a href="#">VIDEO TUTORIALS</a>
-                  <a href="#">HÄUFIG GESTELLTE FRAGEN</a>
-                  <a href="#">KONTAKT</a>
-                </div>
-              </div>
-
-
-              <div class="dropdown">
-              <button type="button" class="nav-item" id="logout"></button>
-              <div class="dropdown-content2">
-                <div class="dropdown-header">
-                  <div class="row">
-                    <img src="img/logout-big.png" class=col-xs-5 Dropdown-Header-Picture/>
-                    <div class=".Dropdown-Header1">
-                      MÖCHTEST DU<br/>CHECK!<br/>VERLASSEN?
-                    </div>
-                  </div>
-              </div>
-                <a href="#">JA</a>
-                <a href="#">NEIN</a>
-              </div>
-            </div>
+        <!-- Button Das kann ich + Dropdown-Menu -->
+        <div class="dd">
+          <button type="button" class="nav-button " id="achieved-competences"></button>
+          <div class="dd-content dd-height" id="dd-achieved-competences">
+            <section class="dd-header">
+              <section class="row">
+                <img src="../../../images/achievedCompetences-big.png" class="col-xs-5 dd-header-picture" />
+                <p class="col-xs-7 dd-header-text-1">
+                  DAS<br>KANN<br>ICH!
+                </p>
+              </section>
+            </section>
+            <section class="dd-scrollable">
+              <a href="#" class="ch00 ch00">ALLE KOMPETENZEN</a>
+              <a href="#" class="ch00 ch01">DAS BIN ICH!</a>
+              <a href="#" class="ch00 ch02">ICH UND DIE ANDEREN</a>
+              <a href="#" class="ch00 ch03">DIE WELT UM MICH HERUM</a>
+              <a href="#" class="ch00 ch04">ICH WERDE SELBSTSTÄNDIG</a>
+              <a href="#" class="ch00 ch05">SICH BEWEGEN</a>
+              <a href="#" class="ch00 ch06">LERNEN</a>
+              <a href="#" class="ch00 ch07">ARBEITEN</a>
+              <a href="#" class="ch00 ch08">GESTALTEN UND ERSCHAFFEN</a>
+              <a href="#" class="ch00 ch09">SPRECHEN</a>
+              <a href="#" class="ch00 ch10">FREMDSPRACHE</a>
+              <a href="#" class="ch00 ch11">LESEN</a>
+              <a href="#" class="ch00 ch12">SCHREIBEN</a>
+              <a href="#" class="ch00 ch13">MESSEN</a>
+              <a href="#" class="ch00 ch14">LÖSUNGEN FINDEN</a>
+              <a href="#" class="ch00 ch15">ZÄHLEN UND RECHNEN</a>
+              <a href="#" class="ch00 ch16">FORM UND RAUM ENTDECKEN</a>
+            </section>
           </div>
-
         </div>
       </section>
-    </nav>
+
+      <!-- Buttons rechts 1 -->
+      <section class="col-xs-3 float-xs-right text-xs-right">
+
+        <!-- Button Profil + Dropdown-Menu -->
+        <div class="dd">
+          <button type="button" class="nav-button " id="profile"></button>
+          <div class="dd-content" id="dd-profile">
+            <section class="dd-header">
+              <section class="row">
+                <img src="../../../images/student/superhero-robin-big-active.png" class="col-xs-5 dd-header-picture" />
+                <p class="col-xs-7 dd-header-text-1">
+                  Schüler<br>Name
+                </p>
+              </section>
+              <section class="dd-header-text-2">
+                20. September 2008
+              </section>
+            </section>
+            <a routerLink="/changepicture">MEIN PROFILBILD ÄNDERN</a>
+            <a routerLink="/changepassword">MEIN PASSWORT ÄNDERN</a>
+            <a routerLink="/deleteaccount">MEIN PROFIL LÖSCHEN</a>
+          </div>
+        </div>
+
+        <!-- Button Schule + Dropdown-Menu -->
+        <div class="dd">
+          <button type="button" class="nav-button" id="school-profile"></button>
+          <div class="dd-content" id="dd-school-profile">
+            <section class="dd-header">
+              <section class="row">
+                <img src="../../../images/school/school-rose-big-active.png" class="col-xs-5 dd-header-picture" />
+                <p class="col-xs-7 dd-header-text-1">
+                  ASTRID<br>LINDGREN<br>SCHULE
+                </p>
+              </section>
+              <section class="dd-header-text-2">
+                STRASSE NUMMER<br/>PLZ ORT<br/>LAND<br/>EMAIL<br/>TELEFON<br/>
+              </section>
+            </section>
+          </div>
+        </div>
+
+        <!-- Button Klasse + Dropdown-Menu -->
+        <div class="dd">
+          <button type="button" class="nav-button" id="study-group-profile"></button>
+          <div class="dd-content" id="dd-study-group-profile">
+            <section class="dd-header">
+              <section class="row">
+                <img src="../../../images/studyGroup/studyGroup_2a_active-big.png" class="col-xs-5 dd-header-picture" />
+                <p class="col-xs-7 dd-header-text-1">
+                  KLASSE<br>2B
+                </p>
+              </section>
+              <section class="dd-header-text-2">
+                KLASSENLEHRER*IN<br>Valerie Wildemann
+              </section>
+            </section>
+          </div>
+        </div>
+
+        <!-- Trennung der rechten Buttons -->
+        <div class="split">
+        </div>
+
+        <!-- Buttons rechts 2 -->
+        <!-- Button Help + Dropdown-Menu -->
+        <div class="dd">
+          <button type="button" class="nav-button" id="help"></button>
+          <div class="dd-content" id="dd-help">
+            <section class="dd-header">
+              <section class="row">
+                <img src="../../../images/help-big.png" class="col-xs-5 dd-header-picture" />
+                <p class="col-xs-7 dd-header-text-1">
+                  BRAUCHST<br>DU HILFE?
+                </p>
+              </section>
+            </section>
+            <a href="#">SO GEHT´S!</a>
+            <a href="#">VIDEO-TUTORIALS</a>
+            <a href="#">HÄUFIG GESTELLTE FRAGEN</a>
+            <a href="#">KONTAKT</a>
+          </div>
+        </div>
+
+        <!-- Button Logout + Dropdown-Menu -->
+        <div class="dd">
+          <button type="button" class="nav-button" id="logout"></button>
+          <div class="dd-content" id="dd-logout">
+            <section class="dd-header">
+              <section class="row">
+                <img src="../../../images/logout-big.png" class="col-xs-5 dd-header-picture" />
+                <p class="col-xs-7 dd-header-text-1">
+                  MÖCHTEST DU<br>CHECK!<br>VERLASSEN?
+                </p>
+              </section>
+            </section>
+            <a href="#">JA</a>
+            <a href="#">NEIN</a>
+          </div>
+        </div>
+
+      </section>
+    </section>
+  </section>
+</nav>
