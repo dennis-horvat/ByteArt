@@ -1,13 +1,18 @@
+@font-face { font-family: "roboto-thin"; src: url("../resources/ttf/Roboto-Thin.ttf") format("truetype"); }
+@font-face { font-family: "widolte_regular" ; src: url("../resources/ttf/Widolte_Regular.otf") format("opentype");}
+
+
 .text {
     width: 250px;
     font-size: 20px;
-    font-family: "Roberto";
+    font-family: "widolte_regular";
     padding: 15px;
     color: #001a3a;
+    font-weight:bold;
 }
 
 .imgcontainer {
-    margin: 30px 0 5px 0;
+    margin: 90px 0 5px 0;
 }
 
 input[type=password] {
@@ -36,4 +41,5 @@ button {
     cursor: pointer;
     width: 150px;
     border-radius: 8px;
+    font-weight:bold;
 }

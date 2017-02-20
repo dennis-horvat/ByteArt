@@ -1,10 +1,15 @@
+.profileImage {
+    cursor:pointer;
+}
+
 .navbar {
   background-color: #001a3a;
   z-index: 10;
 }
-.col-xs-4{
-  background-color: #f7bed2;
-}
+
+
+
+
 
 .dropdown {
     position: relative;
@@ -41,7 +46,7 @@
 .dropdown-content1 a{
   text-align: left;
   font-size: 13pt;
-  color: #4565ad;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -178,29 +183,10 @@
   background-image: url(img/achievedCompetences-active.png);
 }
 
-#student{
-  background-image: url(img/student/superhero-robin-inactive.png);
-}
 
-#student:hover{
-  background-image: url(img/student/superhero-robin-active.png);
-}
 
-#school{
-  background-image: url(img/school/school-inactive.png);
-}
 
-#school:hover{
-  background-image: url(img/school/school-rose-active.png);
-}
 
-#studyGroup{
-  background-image: url(img/studyGroup/studyGroup_2b_inactive.png);
-}
-
-#studyGroup:hover{
-  background-image: url(img/studyGroup/studyGroup_2b_active.png);
-}
 
 #help{
   background-image: url(img/help-inactive.png);
@@ -221,7 +207,7 @@
 /* dropdown menü farben*/
 
 #K1 { background-color: #79ab2e; }
-#K1:hover { background-color: #alc153; }
+#K1:hover { background-color: #a1c153; }
 #K2 { background-color: #c6d54f; }
 #K2:hover { background-color: #dbe283; }
 #K3 { background-color: #94c122; }

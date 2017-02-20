@@ -4,41 +4,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CHECK!</title>
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-cookies.js"></script>
+  <script src="login.js"></script>
 </head>
 <style>
+@font-face { font-family: "roboto-thin"; src: url("../resources/ttf/Roboto-Thin.ttf") format("truetype"); }
+@font-face { font-family: "widolte_regular" ; src: url("../resources/ttf/Widolte_Regular.otf") format("opentype");}
 
-<!-- test--> 
-input[placeholder] {
-  font-style:normal;
-  font-size: 13pt;
-  font-family: "Brandon Grotesque";
-  color: grey;
-}
 
-input[type=text] {
-    border-radius: 8px;
+input[type="text"] {
+    margin-bottom:3px;
+    border-radius: 6px;
+    padding-left:15px;
     width: 300px;
-    padding: 10px;
-    margin: 5px 0px 0px 0px;
     display: inline-block;
     border: 2px solid #8da6d6;
     height: 40px;
     color: #001a3a;
-    font-size: 13px;
-    font-family: "Roberto";
+    font-size: 13pt;
+    font-family: "roboto-thin";
 }
 
-input[type=password] {
-    border-radius: 8px;
+input[type="password"] {
+    border-radius: 6px;
+    padding-left:15px;
+    margin-bottom:20px;
     width: 300px;
-    padding: 10px;
-    margin: 2px 0px 2px 0px;
     display: inline-block;
     border: 2px solid #8da6d6;
     height: 40px;
     color: #001a3a;
-    font-size: 13px;
-    font-family: "Roberto";
+    font-size: 13pt;
+    font-family: "roboto-thin";
+}
+
+input::-webkit-input-placeholder {
+   color: #d3ddf2;
+   font-family: "widolte_regular";
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+   color: #d3ddf2;
+   font-family: "widolte_regular";
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+   color: #d3ddf2;
+   font-family: "widolte_regular";
+}
+
+input:-ms-input-placeholder {
+   color: #d3ddf2;
+   font-family: "widolte_regular";
 }
 
 button {
@@ -50,7 +68,8 @@ button {
     font-size: 13px;
     cursor: pointer;
     width: 150px;
-    border-radius: 8px;
+    border-radius: 6px;
+    font-weight: bold;
 }
 
 .imgcontainer {
@@ -67,26 +86,60 @@ img.avatar {
     padding: 16px;
 }
 
-.container2 {
+.container2, a {
     text-align: center;
-    padding: 16px;
+    color:#8da6d6;
+    padding: 13pt;
 }
 
 .psw {
-    font-size: 13px;
+    font-size: 13pt;
     color: #8da6d6;
 }
 
 .footer {
   text-align: center;
-  font-size: 9px;
+  font-size: 9pt;
   color: #8da6d6;
 }
 
 #footerhead {
   color: #001a3a;
 }
+#loginFalseContainer {
+  position:fixed;
+  background-color:#b71967;
+  border:2px solid white;
+  border-radius:6px;
+  top:150px;
+  left:530px;
+  margin:auto;
+  width:300px;
+  height:200px;
+}
 
+  .close{
+    position:absolute;
+    top:5px;
+    right:5px;
+    cursor:pointer;
+  }
+
+  #errorImage {
+    position:absolute;
+    top:20px;
+    left:113px;
+  }
+
+  #warningContainer {
+    position:absolute;
+    left:15px;
+    bottom:15px;
+    width:270px;
+    height:80px;
+    overflow:hidden;
+    color:white;
+  }
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
@@ -95,23 +148,30 @@ img.avatar {
        float: none;
     }
 
+
 }
 </style>
-<body>
+<body ng-app="testApi" ng-controller="apiCtrl">
+  <div id="loginFalseContainer" ng-show="warning">
+    <img class="close" src="images/delete.png" ng-click="closeWarning()" >
+    <img id="errorImage" src="images/warning.png">
+    <div id="warningContainer">Benutzername oder Passwort ist falsch!
+    <br>Versuchen Sie es erneut.
+  </div>
+  </div>
 
-<form action="action_page.php">
   <div class="imgcontainer">
     <img src="img\login\header.png" alt="Avatar" class="avatar">
   </div>
 
-  <div class="container1">
-    <input type="text" placeholder="BENUTZERNAME" name="uname" required>
+  <form class="container1" >
+    <input type="text" placeholder="BENUTZERNAME" name="uname" ng-model="username" required>
     <br>
-    <input type="password" placeholder="PASSWORD" name="psw" required>
+    <input type="password" placeholder="PASSWORD" name="psw" ng-model="password" required>
     <br>
-    <button type="submit">LOS!</button>
-  </div>
-
+    <button ng-click="login()">LOS!</button>
+    <input type="submit" ng-submit="login()" ng-show=false>
+  </form>
   <div class="container2">
     <span class="psw">Sie m&oumlchten mit CHECK! arbeiten?
     <br>
@@ -125,7 +185,6 @@ img.avatar {
     <p>www.raupundritter.com - Kontakt - Impressum - Preise - Hilfe</p>
   </div>
 
-</form>
 
 </body>
 </html>

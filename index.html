@@ -1,198 +1,176 @@
 <!doctype html>
 <html lang="de" ng-app="app">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <link rel="icon" href="/favicon.ico">
     <title>CHECK!</title>
 
-    <link rel="stylesheet" href="style.css" media="screen" >
-    <link rel="stylesheet" href="navbar.css" media="screen" >
-    <link rel="stylesheet" href="content.css" media="screen" >
+    <link rel="stylesheet" href="style.css" media="screen">
+    <link rel="stylesheet" href="navbar.css" media="screen">
+    <link rel="stylesheet" href="content.css" media="screen">
+    <link rel="stylesheet" href="changepassword.css" media="screen">
+    <link rel="stylesheet" href="changeprofil.css" media="screen">
+    <link rel="stylesheet" href="delete-profile.css" media="screen">
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" media="screen">
+    <!--[if lt IE 7]>
+    <link rel="stylesheet" href="style/bootstrap-ie7.css" media="screen">
+    <script>
+        console.log("IE 7 or higher!");
+    </script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
+          media="screen">
     <!-- Angularjs-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-cookies.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="app.js"></script>
+    <script src="changePasswordAngular.js"></script>
 
-  </head>
-  <body>
-
+</head>
+<body ng-app="app" ng-controller="MainController" ng-cloak>
 <!-- Navigationsleiste oben-->
-    <nav class="navbar navbar-default" role="navigation" id="header">
-      <section class="container-fluid">
+<nav class="navbar navbar-default" role="navigation" id="header">
+    <section class="container-fluid">
         <div class="row flex-items-xs-between">
-<!-- Elemente links-->
-          <div class="col-xs-2">
+            <!-- Elemente links-->
+            <div class="col-xs-2">
 
-            <div class="dropdown ">
-              <button type="button" class="nav-item" id="chapter-overview"></button>
+                <div class="dropdown ">
+                    <button type="button" class="nav-item" id="chapter-overview"></button>
 
 
-                <div class="dropdown-content1">
-                  <div class="dropdown-header">
-                    <div class="row">
-                      <img src="img/confirmation.png" class=col-xs-5 Dropdown-Header-Picture/>
-                      <p class="col-xs-7 Dropdown-Header1">
-                        CHECK!<br/>KOMPETENZENLISTE
-                      </p>
+                    <div class="dropdown-content1">
+                        <div class="dropdown-header">
+                            <div class="row">
+                                <img src="img/confirmation.png" class=col-xs-5 Dropdown-Header-Picture/>
+                                <p class="col-xs-7 Dropdown-Header1">
+                                    CHECK!<br/>KOMPETENZENLISTE
+                                </p>
+                            </div>
+
+                        </div>
+                        <div ng-repeat="chapter in chapters">
+                        <a ng-click="changeCompetence(chapter._id)" class="clickable"
+                           id="K{{chapter._id}}">{{chapter.name}}</a>
+                    </div>
                     </div>
 
-                </div class="dropdown-menu scrollable-menu">
-                  <a href="#" id="K1">DAS BIN ICH!</a>
-                  <a href="#" id="K2">ICH UND DIE ANDEREN</a>
-                  <a href="#" id="K3">DIE WELT UM MICH HERUM</a>
-                  <a href="#" id="K4">ICH WERDE SELBSTSTÄNDIG</a>
-                  <a href="#" id="K5">SICH BEWEGEN</a>
-                  <a href="#" id="K6">LERNEN</a>
-                  <a href="#" id="K7">ARBEITEN</a>
-                  <a href="#" id="K8">GESTALTEN UND ERSCHAFFEN</a>
-                  <a href="#" id="K9">SPRECHEN</a>
-                  <a href="#" id="K10">FREMDSPRACHE</a>
-                  <a href="#" id="K11">LESEN</a>
-                  <a href="#" id="K12">SCHREIBEN</a>
-                  <a href="#" id="K13">MESSEN</a>
-                  <a href="#" id="K14">LÖSUNGEN FINDEN</a>
-                  <a href="#" id="K15">ZÄHLEN UND RECHNEN</a>
-                  <a href="#" id="K16">FORM UND RAUM ENTDECKEN</a>
                 </div>
 
-            </div>
-
-            <div class="dropdown">
-              <button type="button" class="nav-item " id="educational-plan"></button>
-            </div>
-
-            <div class="dropdown">
-              <button type="button" class="nav-item " id="achieved-competences"></button>
-
-
-
-
-
-            </div>
-          </div>
-<!-- Logo mitte-->
-          <div class="col-xs-3 float-xs-right text-xs-right">
-<!-- Elemente rechts -->
-            <div class="dropdown">
-              <button type="button" class="nav-item " id="student"></button>
-              <div class="dropdown-content2">
-                <div class="dropdown-header">
-                  <div class="row">
-                    <img src="img/student/superhero-robin-big-active.png" class=col-xs-5 Dropdown-Header-Picture/>
-                    <p class="col-xs-7 Dropdown-Header1">
-                      Schüler<br/>Name
-                    </p>
-                  </div>
-                  <div class=".Dropdown-Header2">
-                  20. September 2008
+                <div class="dropdown">
+                    <a href="#/ford"><button type="button" class="nav-item " id="educational-plan"></button></a>
                 </div>
-              </div>
-                <a href="changeprofil.html">Mein Profilbild ändern</a>
-                <a href="#">Mein Passwort ändern</a>
-                <a href="#">Mein Profil löschen</a>
-              </div>
+
+                <div class="dropdown">
+                    <button type="button" class="nav-item " id="achieved-competences"></button>
+
+
+                </div>
             </div>
-
-              <div class="dropdown">
-              <button type="button" class="nav-item" id="school"></button>
-              <div class="dropdown-content2">
-                <div class="dropdown-header">
-                  <div class="row">
-                    <img src="img/school/school-green-big-active.png" class=col-xs-5 Dropdown-Header-Picture/>
-                    <p class="col-xs-7 Dropdown-Header1">
-                      Astrid-<br/>Lindgren-<br>Schule
-                    </p>
-                  </div>
-                  <div class=".Dropdown-Header2">
-                  STRASSE NR<br>PLZ ORT<br>LAND<br><br>EMAIL<br>TELEFON
-                </div>
-                </div>
-              </div>
-              </div>
-
-              <button type="button" class="nav-item" id="studyGroup"></button>
-
-<!-- Trennstrich-->
-              <div class="split">
-              </div>
-
-              <div class="dropdown">
-              <button type="button" class="nav-item" id="help"></button>
-                <div class="dropdown-content2">
-                  <div class="dropdown-header">
-                    <div class="row">
-                      <img src="img/help-big.png" class=col-xs-5 Dropdown-Header-Picture/>
-                      <p class="col-xs-7 Dropdown-Header1">
-                        BRAUCHST<br/>DU HILFE?
-                      </p>
+            <!-- Logo mitte-->
+            <div class="col-xs-3 float-xs-right text-xs-right">
+                <!-- Elemente rechts -->
+                <div class="dropdown">
+                    <button type="button" class="nav-item " id="student"></button>
+                    <div class="dropdown-content2">
+                        <div class="dropdown-header">
+                            <div class="row">
+                                <img src="{{avatars[student.avatarId].avatarBigUrl}}" class=col-xs-5
+                                     Dropdown-Header-Picture/>
+                                <p class="col-xs-7 Dropdown-Header1">
+                                    {{student.forename}}<br/>{{student.surname}}
+                                </p>
+                            </div>
+                            <div class=".Dropdown-Header2">
+                                {{student.birth}}
+                            </div>
+                        </div>
+                        <a href="#/changeprofile">Mein Profilbild ändern</a>
+                        <a href="#/changepassword">Mein Passwort ändern</a>
+                        <a href="#/deleteprofile">Mein Profil löschen</a>
                     </div>
                 </div>
-                  <a href="#">SO GEHT'S!</a>
-                  <a href="#">VIDEO TUTORIALS</a>
-                  <a href="#">HÄUFIG GESTELLTE FRAGEN</a>
-                  <a href="#">KONTAKT</a>
+
+                <div class="dropdown">
+                    <button type="button" class="nav-item" id="school"></button>
+                    <div class="dropdown-content2">
+                        <div class="dropdown-header">
+                            <div class="row">
+                                <img src="{{student.school.imageUrlBig}}" class=col-xs-5 Dropdown-Header-Picture/>
+                                <p class="col-xs-7 Dropdown-Header1">
+                                    {{student.school.name}}
+                                </p>
+                            </div>
+                            <div class=".Dropdown-Header2">
+                                {{student.school.street}}<br>{{student.school.city}}<br>{{student.school.country}}<br>{{student.school.email}}<br>{{student.school.telefon}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+
+                <button type="button" class="nav-item" id="studyGroup"></button>
+
+                <!-- Trennstrich-->
+                <div class="split">
+                </div>
+
+                <div class="dropdown">
+                    <button type="button" class="nav-item" id="help"></button>
+                    <div class="dropdown-content2">
+                        <div class="dropdown-header">
+                            <div class="row">
+                                <img src="img/help-big.png" class=col-xs-5 Dropdown-Header-Picture/>
+                                <p class="col-xs-7 Dropdown-Header1">
+                                    BRAUCHST<br/>DU HILFE?
+                                </p>
+                            </div>
+                        </div>
+                        <a href="#">SO GEHT'S!</a>
+                        <a href="#">VIDEO TUTORIALS</a>
+                        <a href="#">HÄUFIG GESTELLTE FRAGEN</a>
+                        <a href="#">KONTAKT</a>
+                    </div>
+                </div>
 
 
-              <div class="dropdown">
-              <button type="button" class="nav-item" id="logout"></button>
-              <div class="dropdown-content2">
-                <div class="dropdown-header">
-                  <div class="row">
-                    <img src="img/logout-big.png" class=col-xs-5 Dropdown-Header-Picture/>
-                    <p class="col-xs-7 Dropdown-Header1">
-                      MÖCHTEST DU<br/>CHECK!<br/>VERLASSEN?
-                    </p>
-                  </div>
-              </div>
-                <a href="#">JA</a>
-                <a href="#">NEIN</a>
-              </div>
+                <div class="dropdown">
+                    <button type="button" class="nav-item" id="logout"></button>
+                    <div class="dropdown-content2">
+                        <div class="dropdown-header">
+                            <div class="row">
+                                <img src="img/logout-big.png" class=col-xs-5 Dropdown-Header-Picture/>
+                                <p class="col-xs-7 Dropdown-Header1">
+                                    MÖCHTEST DU<br/>CHECK!<br/>VERLASSEN?
+                                </p>
+                            </div>
+                        </div>
+                        <a ng-click="logout()" href="/login.html">JA</a>
+                        <a href="#">NEIN</a>
+                    </div>
+                </div>
             </div>
-          </div>
 
         </div>
-      </section>
-    </nav>
+    </section>
+</nav>
 <!-- Seiteninhalt speechbubbles-->
 
+<div id="MegaUberContent">
+<ng-view>
 
-
-    <div class="col-xs-4">
-      <img src="img/illustrations/illustrationLeft.png" alt="illustrationLeft" id="containerLeft">
-
-    </div>
-
-
-      <div class="col-xs-4" id="containerMid" ng-app="app" ng-controller="MainController">
-        <div class="speechbubble" ng-repeat="daten in datenJS">
-          <div class="bubble-text col-xs-12">
-              <p>
-                <span>{{daten.text}}</span>
-              </p>
-          </div>
-          <img ng-src="{{daten.image}}" alt="smallimg" class="bubble-img" />
-        </div>
-
-      </div>
-
-
-    <div class="col-xs-4">
-      <img src="img/illustrations/illustrationRight.png" alt="illustrationRight" id="containerRight">
-
-    </div>
-
+</ng-view>
+</div>
 
 <!-- fusszeile-->
-
-    <div class="footer">
-      <img id="logo" src="img\logo.png">
-      <p id="footertext"> edition 2016 dark night blue 1.0</p>
-    </div>
-  </body>
+<div class="footerHolder"></div>
+<div class="footer">
+    <img id="logo" src="img\logo.png">
+    <p id="footertext"> edition 2016 dark night blue 1.0</p>
+</div>
+</body>
 </html>
