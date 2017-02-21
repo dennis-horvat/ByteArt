@@ -1,0 +1,108 @@
+@font-face { font-family: "roboto-thin"; src: url("../resources/ttf/Roboto-Thin.ttf") format("truetype"); }
+@font-face { font-family: "widolte_regular" ; src: url("../resources/ttf/Widolte_Regular.otf") format("opentype");}
+
+
+input[type="text"] {
+    margin-bottom:3px;
+    border-radius: 6px;
+    padding-left:15px;
+    width: 300px;
+    display: inline-block;
+    border: 2px solid #8da6d6;
+    height: 40px;
+    color: #001a3a;
+    font-size: 13pt;
+    font-family: "roboto-thin";
+}
+
+input[type="password"] {
+    border-radius: 6px;
+    padding-left:15px;
+    margin-bottom:20px;
+    width: 300px;
+    display: inline-block;
+    border: 2px solid #8da6d6;
+    height: 40px;
+    color: #001a3a;
+    font-size: 13pt;
+    font-family: "roboto-thin";
+}
+
+input::-webkit-input-placeholder {
+    color: #d3ddf2;
+    font-family: "widolte_regular";
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+    color: #d3ddf2;
+    font-family: "widolte_regular";
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+    color: #d3ddf2;
+    font-family: "widolte_regular";
+}
+
+input:-ms-input-placeholder {
+    color: #d3ddf2;
+    font-family: "widolte_regular";
+}
+
+button {
+    background-color: #001a3a;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+    width: 150px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 5px 0;
+}
+
+img.avatar {
+    width: 400px;
+}
+
+.container1 {
+    text-align: center;
+    padding: 16px;
+}
+
+.container2, a {
+    text-align: center;
+    color:#8da6d6;
+    padding: 13pt;
+}
+
+.psw {
+    font-size: 13pt;
+    color: #8da6d6;
+}
+
+.footer {
+    text-align: center;
+    font-size: 9pt;
+    color: #8da6d6;
+}
+
+#footerhead {
+    color: #001a3a;
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+
+}

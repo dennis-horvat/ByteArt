@@ -1,0 +1,42 @@
+#warningMessageContainer, #successMessageContainer {
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top:-100px;
+    margin-left:-150px;
+    border:2px solid white;
+    border-radius:6px;
+    width:300px;
+    height:200px;
+}
+
+#warningMessageContainer {
+    background-color:#b71967;
+}
+
+#successMessageContainer {
+background-color:#76b82d;
+}
+
+.closeIcon{
+    position:absolute;
+    top:5px;
+    right:5px;
+    cursor:pointer;
+}
+
+.messageImage {
+    position:absolute;
+    top:20px;
+    left:113px;
+}
+
+.messageText {
+    position:absolute;
+    left:15px;
+    bottom:15px;
+    width:270px;
+    height:80px;
+    overflow:hidden;
+    color:white;
+}

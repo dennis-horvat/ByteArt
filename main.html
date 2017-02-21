@@ -1,0 +1,30 @@
+
+<div ng-app="app" ng-controller="MainController">
+    <div id="backplate"></div>
+<div class="col-xs-4">
+    <img src={{shared.chapterFlagPath}}>
+    <img src="images/illustrations/illustrationLeft.png" alt="illustrationLeft" id="containerLeft">
+
+</div>
+
+
+<div class="col-xs-4" id="containerMid">
+    <div class="speechbubble" ng-repeat="daten in shared.datenJS">
+        <div class="bubble-text col-xs-12">
+            <p>
+                <span>{{daten.studentText}}</span>
+                <br>
+                <span>Erreicht am: {{daten.fromDate}}</span>
+            </p>
+        </div>
+        <img ng-src="{{daten.img}}" alt="smallimg" class="bubble-img"/>
+    </div>
+
+</div>
+
+
+<div class="col-xs-4">
+    <img src="images/illustrations/illustrationRight.png" alt="illustrationRight" id="containerRight">
+
+</div>
+</div>

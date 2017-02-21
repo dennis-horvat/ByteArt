@@ -1,5 +1,51 @@
+function showDropdownOf(element){
+    var content = $("#" + element.id);
+    if(content.next().css("display") === "none") {
+        $(".dropdown-button").next().css("display", "none");
+        content.next().css('display', 'block');
+    }else{
+        content.next().css('display', 'none');
+    }
+}
+
+
 var app = angular.module('app', ['ngCookies', 'ngRoute'])
 
+app.service('messages', function(){
+    var warningMessage = "Warning Dummy";
+    var successMessage = "Success Dummy";
+    var warning = false;
+    var success = false;
+
+    showWarning = function(message){
+        this.warningMessage = message;
+        this.warning = true;
+    };
+
+    closeWarning = function(){
+        this.warning=false;
+    };
+
+    showSuccess = function(message){
+        this.successMessage = message;
+        this.success = true;
+    };
+
+    closeSuccess = function(){
+        this.success = false;
+    }
+
+    return {
+        warningMessage: warningMessage,
+        successMessage: successMessage,
+        warning: warning,
+        success: success,
+        showWarning: showWarning,
+        closeWarning: closeWarning,
+        showSuccess: showSuccess,
+        closeSuccess: closeSuccess
+    };
+});
 
 app.service('shared', function(){
     var datenJS = [];
@@ -17,11 +63,23 @@ app.service('shared', function(){
     }
 });
 
+app.directive('warningMessage', function(){
+    return {
+        templateUrl: "directives/warningmessage.html"
+    } ;
+});
+
+app.directive('successMessage', function(){
+    return {
+        templateUrl: "directives/successmessage.html"
+    } ;
+});
+
 app.config(function($routeProvider){
    $routeProvider.when("/", {
-       templateUrl : "main.htm"
+       templateUrl : "main.html"
    }).when("/ford", {
-       templateUrl : "foerder.htm"
+       templateUrl : "foerder.html"
    }).when("/changepassword", {
        templateUrl : "changePassword.html"
    }).when("/changeprofile", {
@@ -46,6 +104,7 @@ app.controller('MainController', function ($scope, $cookies, $window, $http, sha
         $cookies.put("currentChapter", id);
         $scope.currentChapter = id;
         $("#backplate").css("background-color", $scope.chapters[$scope.currentChapter-1].weakcolor);
+        $("#K" + id).css("background-color", $scope.chapters[$scope.currentChapter-1].weakcolor);
         shared.chapterFlagPath = "/images/chapter";
         if($scope.currentChapter < 10){
             shared.chapterFlagPath += "0";
@@ -100,6 +159,7 @@ app.controller('MainController', function ($scope, $cookies, $window, $http, sha
             $cookies.put("currentChapter", 1);
         }
         $("#backplate").css("background-color", $scope.chapters[$scope.currentChapter-1].weakcolor);
+        $("#K" + $scope.currentChapter).css("background-color", $scope.chapters[$scope.currentChapter-1].weakcolor);
         shared.chapterFlagPath = "/images/chapter";
         if($scope.currentChapter < 10){
             shared.chapterFlagPath += "0";
@@ -131,10 +191,18 @@ app.controller('MainController', function ($scope, $cookies, $window, $http, sha
 
 });
 
-app.controller('passwordController', function($scope, $http, $cookies){
+app.controller('passwordController', function($scope, $http, $cookies, messages){
+    $scope.messages = messages
     $scope.token = $cookies.get('token');
     $scope.changePassword = function(){
-        if($scope.newPassword === $scope.passwordConfirmation && $scope.newPassword !== $scope.currentPassword && $scope.newPassword !== undefined){
+
+        if($scope.newPassword === undefined){
+            messages.showWarning("Das Passwort darf nicht leer sein!");
+        }else if($scope.newPassword === $scope.currentPassword){
+            messages.showWarning("Das Passwort darf nicht das Alte Passwort sein!")
+        }else if($scope.newPassword !== $scope.passwordConfirmation){
+            messages.showWarning("Das Passwort und die Bestätigung müssen übereinstimmen!")
+        }else{
             console.log("Go");
             $http.put("http://46.101.204.215:1337/api/V1/requestPasswordRecovery", {
                 'newpassword':$scope.newPassword,
@@ -143,6 +211,9 @@ app.controller('passwordController', function($scope, $http, $cookies){
                 headers:{
                     'Authorization':$scope.token
                 }
+            }).then(function(response){
+                console.log("Show Success");
+                messages.showSuccess(response.data.message);
             });
         }
     };
@@ -152,7 +223,18 @@ app.controller('fordController', function($scope){
 
 });
 
-app.controller('profileChangeCtrl', function($scope, $http, $cookies, shared){
+app.controller('profileChangeCtrl', function($scope, $http, $cookies, shared, messages){
+
+    $scope.changeProfile = function(){
+        $http.put("http://46.101.204.215:1337/api/V1/avatar/:" + shared.selectedProfile, "", {
+            headers:{
+                'Authorization':$scope.token
+            }
+        }).then(function(response){
+            messages.showSuccess("Profilbild wurde erfolgreich geändert!");
+        });
+    };
+    $scope.messages = messages;
     $scope.shared = shared;
     $scope.token = $cookies.get('token');
     shared.selectedProfile = "0";
@@ -165,13 +247,7 @@ app.controller('profileChangeCtrl', function($scope, $http, $cookies, shared){
             }
         }
     };
-    $scope.changeProfile = function(){
-        $http.put("http://46.101.204.215:1337/api/V1/avatar/:" + shared.selectedProfile, "", {
-            headers:{
-                'Authorization':$scope.token
-            }
-        });
-    };
+
     $http.get("http://46.101.204.215:1337/api/V1/avatar", {
         headers:{
             'Authorization':$scope.token

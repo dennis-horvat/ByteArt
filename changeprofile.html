@@ -1,21 +1,22 @@
 
   <div  ng-app="app" ng-controller="profileChangeCtrl" >
+    <success-message></success-message>
     <center>
       <div class="container-fluid" id="space40">
       </div>
-      <img src={{shared.profiles[shared.selectedProfile]}}>
+      <img ng-src={{shared.profiles[shared.selectedProfile]}}>
       <h3> PROFILBILD ÄNDERN</h3>
       <button type="submit" ng-click="changeProfile()">SPEICHERN</button>
       <div class="flex-container">
         <div ng-repeat="profile in shared.profiles">
           <div class="flex-item profileImage">
-            <img src={{profile}} alt="batman" ng-click="selectProfile(profile)">
+            <img ng-src={{profile}} alt="batman" ng-click="selectProfile(profile)">
           </div>
         </div>
         <!-- weitere Avatare-->
         <div ng-repeat="p in shared.placeholder">
           <div class="flex-item">
-            <img src="img/student/superhero-gandalf-big-active.png" alt=gandalf>
+            <img src="images/student/superhero-gandalf-big-active.png" alt=gandalf>
           </div>
         </div>
         <!-- weitere Avatare Ende-->
@@ -29,7 +30,7 @@
       <!-- fusszeile-->
 
           <div class="footer">
-            <img id="logo" src="img\logo.png">
+            <img id="logo" src="images/logo.png">
             <p id="footertext"> edition 2016 dark night blue 1.0</p>
           </div>
 

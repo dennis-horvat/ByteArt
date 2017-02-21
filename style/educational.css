@@ -1,0 +1,12 @@
+#backplate-educational {
+    z-index: -10;
+    position:fixed;
+    background-color: #8da6d6;
+    top: -100px;
+    width:2000px;
+    height:2000px;
+}
+
+.educational-link {
+    color: #4565ad;
+}

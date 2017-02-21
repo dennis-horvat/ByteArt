@@ -1,0 +1,58 @@
+
+#MegaUberContent {
+  position:relative;
+  margin-top:50px;
+  bottom:50px;
+}
+
+#containerMid {
+  z-index: 5;
+
+  height: 100%;
+}
+
+#backplate {
+  top: -100px;
+  width:2000px;
+  height:2000px;
+  background-color: #f7bed2;
+  z-index: -10;
+  position:fixed;
+}
+#containerLeft {
+  z-index: 1;
+}
+#containerRight {
+  z-index: 1;
+}
+@media (max-width: 1200px) {
+  #containerLeft {
+  visibility: hidden;
+  }
+}
+
+@media (max-width: 1200px) {
+  #containerRight {
+  visibility: hidden;
+  }
+}
+
+.speechbubble{
+  width:369px;
+  height: 120px;
+  background: url(../images/contentTextBubble.png);
+  background-size: contain;
+  margin: 5px;
+}
+.bubble-text{
+  margin-top: 15px;
+  font-size: 12px;
+  max-width: 250px;
+  height: 105px;
+  text-align: left;
+  word-wrap: break-word;
+}
+.bubble-img{
+  padding: 15px;
+
+}

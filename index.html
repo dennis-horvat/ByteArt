@@ -7,12 +7,13 @@
     <link rel="icon" href="/favicon.ico">
     <title>CHECK!</title>
 
-    <link rel="stylesheet" href="style.css" media="screen">
-    <link rel="stylesheet" href="navbar.css" media="screen">
-    <link rel="stylesheet" href="content.css" media="screen">
-    <link rel="stylesheet" href="changepassword.css" media="screen">
-    <link rel="stylesheet" href="changeprofil.css" media="screen">
-    <link rel="stylesheet" href="delete-profile.css" media="screen">
+    <link rel="stylesheet" href="style/style.css" media="screen">
+    <link rel="stylesheet" href="style/navbar.css" media="screen">
+    <link rel="stylesheet" href="style/content.css" media="screen">
+    <link rel="stylesheet" href="style/changepassword.css" media="screen">
+    <link rel="stylesheet" href="style/changeprofil.css" media="screen">
+    <link rel="stylesheet" href="style/delete-profile.css" media="screen">
+    <link rel="stylesheet" href="style/messages.css" media="screen">
 
     <!-- Bootstrap core CSS -->
     <!--[if lt IE 7]>
@@ -29,7 +30,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="app.js"></script>
-    <script src="changePasswordAngular.js"></script>
 
 </head>
 <body ng-app="app" ng-controller="MainController" ng-cloak>
@@ -41,13 +41,11 @@
             <div class="col-xs-2">
 
                 <div class="dropdown ">
-                    <button type="button" class="nav-item" id="chapter-overview"></button>
-
-
+                    <button type="button" class="nav-item dropdown-button" id="chapter-overview" onclick="showDropdownOf(this)"></button>
                     <div class="dropdown-content1">
                         <div class="dropdown-header">
                             <div class="row">
-                                <img src="img/confirmation.png" class=col-xs-5 Dropdown-Header-Picture/>
+                                <img src="images/confirmation.png" class="col-xs-5 Dropdown-Header-Picture"/>
                                 <p class="col-xs-7 Dropdown-Header1">
                                     CHECK!<br/>KOMPETENZENLISTE
                                 </p>
@@ -63,7 +61,20 @@
                 </div>
 
                 <div class="dropdown">
-                    <a href="#/ford"><button type="button" class="nav-item " id="educational-plan"></button></a>
+                    <button type="button" class="nav-item dropdown-button" id="educational-plan" onclick="showDropdownOf(this)"></button>
+                    <div class="dropdown-content1">
+                        <div class="dropdown-header">
+                            <div class="row">
+                                <img src="/images/educationalPlan-active.png" class=col-xs-5 Dropdown-Header-Picture/>
+                                <p class="col-xs-7 Dropdown-Header1">
+                                    FÖRDERPLÄNE
+                                </p>
+                            </div>
+                        </div>
+                        <a href="#/ford">MATHE ZR BIS 10</a>
+                        <a href="#/ford">DEUTSCH SATZANFÄNGE</a>
+                        <a href="#/ford">SACHKUNDE "DER WALD"</a>
+                    </div>
                 </div>
 
                 <div class="dropdown">
@@ -76,11 +87,11 @@
             <div class="col-xs-3 float-xs-right text-xs-right">
                 <!-- Elemente rechts -->
                 <div class="dropdown">
-                    <button type="button" class="nav-item " id="student"></button>
+                    <button type="button" class="nav-item dropdown-button " id="student" onclick="showDropdownOf(this)"></button>
                     <div class="dropdown-content2">
                         <div class="dropdown-header">
                             <div class="row">
-                                <img src="{{avatars[student.avatarId].avatarBigUrl}}" class=col-xs-5
+                                <img ng-src="{{avatars[student.avatarId].avatarBigUrl}}" class=col-xs-5
                                      Dropdown-Header-Picture/>
                                 <p class="col-xs-7 Dropdown-Header1">
                                     {{student.forename}}<br/>{{student.surname}}
@@ -97,11 +108,11 @@
                 </div>
 
                 <div class="dropdown">
-                    <button type="button" class="nav-item" id="school"></button>
+                    <button type="button" class="nav-item dropdown-button" id="school" onclick="showDropdownOf(this)"></button>
                     <div class="dropdown-content2">
                         <div class="dropdown-header">
                             <div class="row">
-                                <img src="{{student.school.imageUrlBig}}" class=col-xs-5 Dropdown-Header-Picture/>
+                                <img ng-src="{{student.school.imageUrlBig}}" class=col-xs-5 Dropdown-Header-Picture/>
                                 <p class="col-xs-7 Dropdown-Header1">
                                     {{student.school.name}}
                                 </p>
@@ -120,11 +131,11 @@
                 </div>
 
                 <div class="dropdown">
-                    <button type="button" class="nav-item" id="help"></button>
+                    <button type="button" class="nav-item dropdown-button" id="help" onclick="showDropdownOf(this)"></button>
                     <div class="dropdown-content2">
                         <div class="dropdown-header">
                             <div class="row">
-                                <img src="img/help-big.png" class=col-xs-5 Dropdown-Header-Picture/>
+                                <img src="images/help-big.png" class=col-xs-5 Dropdown-Header-Picture/>
                                 <p class="col-xs-7 Dropdown-Header1">
                                     BRAUCHST<br/>DU HILFE?
                                 </p>
@@ -139,11 +150,11 @@
 
 
                 <div class="dropdown">
-                    <button type="button" class="nav-item" id="logout"></button>
+                    <button type="button" class="nav-item dropdown-button" id="logout" onclick="showDropdownOf(this)"></button>
                     <div class="dropdown-content2">
                         <div class="dropdown-header">
                             <div class="row">
-                                <img src="img/logout-big.png" class=col-xs-5 Dropdown-Header-Picture/>
+                                <img src="images/logout-big.png" class=col-xs-5 Dropdown-Header-Picture/>
                                 <p class="col-xs-7 Dropdown-Header1">
                                     MÖCHTEST DU<br/>CHECK!<br/>VERLASSEN?
                                 </p>
@@ -169,7 +180,7 @@
 <!-- fusszeile-->
 <div class="footerHolder"></div>
 <div class="footer">
-    <img id="logo" src="img\logo.png">
+    <img id="logo" src="images/logo.png">
     <p id="footertext"> edition 2016 dark night blue 1.0</p>
 </div>
 </body>
