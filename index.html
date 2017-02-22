@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="style/changeprofil.css" media="screen">
     <link rel="stylesheet" href="style/delete-profile.css" media="screen">
     <link rel="stylesheet" href="style/messages.css" media="screen">
+    <link rel="stylesheet" href="style/educational.css" media="screen">
+
 
     <!-- Bootstrap core CSS -->
     <!--[if lt IE 7]>
@@ -29,7 +31,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-cookies.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
 
 </head>
 <body ng-app="app" ng-controller="MainController" ng-cloak>
@@ -41,11 +43,12 @@
             <div class="col-xs-2">
 
                 <div class="dropdown ">
-                    <button type="button" class="nav-item dropdown-button" id="chapter-overview" onclick="showDropdownOf(this)"></button>
+                    <button type="button" class="nav-item dropdown-button" id="chapter-overview"
+                            onclick="showDropdownOf(this)"></button>
                     <div class="dropdown-content1">
                         <div class="dropdown-header">
                             <div class="row">
-                                <img src="images/confirmation.png" class="col-xs-5 Dropdown-Header-Picture"/>
+                                <img src="images/confirmation.png" class="col-xs-5"/>
                                 <p class="col-xs-7 Dropdown-Header1">
                                     CHECK!<br/>KOMPETENZENLISTE
                                 </p>
@@ -53,46 +56,71 @@
 
                         </div>
                         <div ng-repeat="chapter in chapters">
-                        <a ng-click="changeCompetence(chapter._id)" class="clickable"
-                           id="K{{chapter._id}}">{{chapter.name}}</a>
-                    </div>
+                            <a href="#/" ng-click="changeCompetence(chapter._id)" class="clickable"
+                               id="K{{chapter._id}}">{{chapter.name}}</a>
+                        </div>
                     </div>
 
                 </div>
 
                 <div class="dropdown">
-                    <button type="button" class="nav-item dropdown-button" id="educational-plan" onclick="showDropdownOf(this)"></button>
+                    <button type="button" class="nav-item dropdown-button" id="educational-plan"
+                            onclick="showDropdownOf(this)"></button>
                     <div class="dropdown-content1">
                         <div class="dropdown-header">
                             <div class="row">
-                                <img src="/images/educationalPlan-active.png" class=col-xs-5 Dropdown-Header-Picture/>
+                                <img src="/images/educationalPlan-active.png" class="col-xs-5"/>
                                 <p class="col-xs-7 Dropdown-Header1">
                                     FÖRDERPLÄNE
                                 </p>
                             </div>
                         </div>
-                        <a href="#/ford">MATHE ZR BIS 10</a>
-                        <a href="#/ford">DEUTSCH SATZANFÄNGE</a>
-                        <a href="#/ford">SACHKUNDE "DER WALD"</a>
+                        <a class="educational-link" href="#/educationalplan" ng-click="changeEducationalPlan(0)">MATHE
+                            ZR BIS 10</a>
+                        <a class="educational-link" href="#/educationalplan" ng-click="changeEducationalPlan(1)">DEUTSCH
+                            SATZANFÄNGE</a>
+                        <a class="educational-link" href="#/educationalplan" ng-click="changeEducationalPlan(2)">SACHKUNDE
+                            "DER WALD"</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
-                    <button type="button" class="nav-item " id="achieved-competences"></button>
+                </div>
 
+                <div class="dropdown ">
+                    <button type="button" class="nav-item dropdown-button" id="achieved-competences"
+                            onclick="showDropdownOf(this)"></button>
+                    <div class="dropdown-content1">
+                        <div class="dropdown-header">
+                            <div class="row">
+                                <img src="images/achievedCompetences-big.png" class="col-xs-5"/>
+                                <p class="col-xs-7 Dropdown-Header1">
+                                    DAS<br>KANN<br>ICH!
+                                </p>
+                            </div>
+
+                        </div>
+                        <a href="#/" ng-click="changeCompetence(0, true)" class="clickable"
+                           id="K0">ALLE KOMPETENZEN</a>
+                        <div ng-repeat="chapter in chapters">
+                            <a href="#/" ng-click="changeCompetence(chapter._id, true)" class="clickable"
+                               id="K{{chapter._id}}">{{chapter.name}}</a>
+                        </div>
+                    </div>
 
                 </div>
+
             </div>
             <!-- Logo mitte-->
             <div class="col-xs-3 float-xs-right text-xs-right">
                 <!-- Elemente rechts -->
                 <div class="dropdown">
-                    <button type="button" class="nav-item dropdown-button " id="student" onclick="showDropdownOf(this)"></button>
+                    <button type="button" class="nav-item dropdown-button " id="student"
+                            onclick="showDropdownOf(this)"></button>
                     <div class="dropdown-content2">
                         <div class="dropdown-header">
                             <div class="row">
-                                <img ng-src="{{avatars[student.avatarId].avatarBigUrl}}" class=col-xs-5
-                                     Dropdown-Header-Picture/>
+                                <img ng-src="{{avatars[student.avatarId].avatarBigUrl}}" class="col-xs-5"/>
                                 <p class="col-xs-7 Dropdown-Header1">
                                     {{student.forename}}<br/>{{student.surname}}
                                 </p>
@@ -101,18 +129,19 @@
                                 {{student.birth}}
                             </div>
                         </div>
-                        <a href="#/changeprofile">Mein Profilbild ändern</a>
-                        <a href="#/changepassword">Mein Passwort ändern</a>
-                        <a href="#/deleteprofile">Mein Profil löschen</a>
+                        <a href="#/changeprofile" ng-click="hideAllDropdowns()">Mein Profilbild ändern</a>
+                        <a href="#/changepassword" ng-click="hideAllDropdowns()">Mein Passwort ändern</a>
+                        <a href="#/deleteprofile" ng-click="hideAllDropdowns()">Mein Profil löschen</a>
                     </div>
                 </div>
 
                 <div class="dropdown">
-                    <button type="button" class="nav-item dropdown-button" id="school" onclick="showDropdownOf(this)"></button>
+                    <button type="button" class="nav-item dropdown-button" id="school"
+                            onclick="showDropdownOf(this)"></button>
                     <div class="dropdown-content2">
                         <div class="dropdown-header">
                             <div class="row">
-                                <img ng-src="{{student.school.imageUrlBig}}" class=col-xs-5 Dropdown-Header-Picture/>
+                                <img ng-src="{{student.school.imageUrlBig}}" class="col-xs-5"/>
                                 <p class="col-xs-7 Dropdown-Header1">
                                     {{student.school.name}}
                                 </p>
@@ -124,14 +153,32 @@
                     </div>
                 </div>
 
-                <button type="button" class="nav-item" id="studyGroup"></button>
+
+                <div class="dropdown">
+                    <button type="button" class="nav-item dropdown-button" id="studyGroup"
+                            onclick="showDropdownOf(this)"></button>
+                    <div class="dropdown-content2">
+                        <div class="dropdown-header">
+                            <div class="row">
+                                <img ng-src="{{student.studyGroups.imageUrlBig}}" class="col-xs-5"/>
+                                <p class="col-xs-7 Dropdown-Header1">
+                                    KLASSE<br>{{student.studyGroups.class}}
+                                </p>
+                            </div>
+                            <div class=".Dropdown-Header2">
+                                KLASSENLEHRER*IN<br>{{student.formteacher}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Trennstrich-->
                 <div class="split">
                 </div>
 
                 <div class="dropdown">
-                    <button type="button" class="nav-item dropdown-button" id="help" onclick="showDropdownOf(this)"></button>
+                    <button type="button" class="nav-item dropdown-button" id="help"
+                            onclick="showDropdownOf(this)"></button>
                     <div class="dropdown-content2">
                         <div class="dropdown-header">
                             <div class="row">
@@ -141,16 +188,17 @@
                                 </p>
                             </div>
                         </div>
-                        <a href="#">SO GEHT'S!</a>
-                        <a href="#">VIDEO TUTORIALS</a>
-                        <a href="#">HÄUFIG GESTELLTE FRAGEN</a>
-                        <a href="#">KONTAKT</a>
+                        <a href="#/" ng-click="hideAllDropdowns()">SO GEHT'S!</a>
+                        <a href="#/" ng-click="hideAllDropdowns()">VIDEO TUTORIALS</a>
+                        <a href="#/" ng-click="hideAllDropdowns()">HÄUFIG GESTELLTE FRAGEN</a>
+                        <a href="#/" ng-click="hideAllDropdowns()">KONTAKT</a>
                     </div>
                 </div>
 
 
                 <div class="dropdown">
-                    <button type="button" class="nav-item dropdown-button" id="logout" onclick="showDropdownOf(this)"></button>
+                    <button type="button" class="nav-item dropdown-button" id="logout"
+                            onclick="showDropdownOf(this)"></button>
                     <div class="dropdown-content2">
                         <div class="dropdown-header">
                             <div class="row">
@@ -160,8 +208,8 @@
                                 </p>
                             </div>
                         </div>
-                        <a ng-click="logout()" href="/login.html">JA</a>
-                        <a href="#">NEIN</a>
+                        <a ng-click="logout()" href="login.html">JA</a>
+                        <a href="#/" ng-click="hideAllDropdowns()">NEIN</a>
                     </div>
                 </div>
             </div>
@@ -172,9 +220,9 @@
 <!-- Seiteninhalt speechbubbles-->
 
 <div id="MegaUberContent">
-<ng-view>
+    <ng-view>
 
-</ng-view>
+    </ng-view>
 </div>
 
 <!-- fusszeile-->

@@ -10,9 +10,11 @@
   z-index: 10;
 }
 
-.clickable {
+.clickable, .clickable:active, .clickable:focus {
   cursor:pointer;
-
+  color: white;
+  text-decoration: none;
+  font-weight:bold;
 }
 
 #logo {

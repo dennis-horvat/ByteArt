@@ -16,6 +16,10 @@
   left: 32px;
 }
 
+.educational-dropdown:hover{
+    color: white;
+}
+
 
 .dropdown-content1 {
     display: none;
@@ -43,7 +47,6 @@
 .dropdown-content1 a{
   text-align: left;
   font-size: 13pt;
-  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -92,9 +95,7 @@
 
 
 
-.dropdown:hover .dropdown-content2 {
-    display: block;
-}
+
 
 .dropdown-content1 a:hover {
   background-color: #8da6d6;
@@ -131,12 +132,13 @@
      height: 10px;
      top: -5px;
      left: 14px;
-     background: #000;
+     background: #001a3a;
      -webkit-transform: rotate(45deg);
      -moz-transform: rotate(45deg);
      -o-transform: rotate(45deg);
      -ms-transform: rotate(45deg);
      transform: rotate(45deg);
+    z-index:0;
 }
 
 .dropdown-content2:before {
@@ -146,7 +148,7 @@
      height: 10px;
      top: -5px;
      right: 14px;
-     background: #000;
+     background: #001a3a;
      -webkit-transform: rotate(45deg);
      -moz-transform: rotate(45deg);
      -o-transform: rotate(45deg);
@@ -155,15 +157,27 @@
 }
 
 #chapter-overview{
-  background-image: url(../images/chapterOverview-inactive.png);
+    background-image: url(../images/chapterOverview-inactive.png);
+}
+
+#chapter-overview:hover{
+    background-image: url(../images/chapterOverview-active.png);
 }
 
 #educational-plan{
-  background-image: url(../images/educationalPlan-inactive.png);
+    background-image: url(../images/educationalPlan-inactive.png);
 }
 
+#educational-plan:hover{
+     background-image: url(../images/educationalPlan-active.png);
+ }
+
 #achieved-competences{
-  background-image: url(../images/achievedCompetences-inactive.png);
+    background-image: url(../images/achievedCompetences-inactive.png);
+}
+
+#achieved-competences:hover{
+    background-image: url(../images/achievedCompetences-active.png);
 }
 
 #help{

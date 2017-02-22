@@ -53,7 +53,7 @@ app.controller('loginCtrl', function ($scope, $http, $cookies, $window, messages
         },{headers:{Authorization: $scope.token}}).then(function (response) {
             $scope.token = response.data.token;
             $cookies.put("token", $scope.token);
-            $window.location = '/#/';
+            $window.location = 'index.html';
         }, function (response) {
             messages.showWarning("Login Fehlgeschlagen!Nutzername oder Passwort ist Falsch!");
         });

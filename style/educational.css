@@ -10,3 +10,41 @@
 .educational-link {
     color: #4565ad;
 }
+
+#educationalContainer {
+    width:369px;
+    left:50%;
+    margin-left:-185px;
+    align-content: center;
+
+}
+
+.educationalTooltip {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right:-200px;
+    background-color: #001a3a;
+    border: 3px solid white;
+    border-radius:6px;
+    color:white;
+    padding:8px;
+}
+
+
+
+.educationalTooltip:before {
+    position: absolute;
+    content:"";
+    width: 10px;
+    height: 10px;
+    top: 27px;
+    left: -7px;
+    background: #001a3a;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index:0;
+}
