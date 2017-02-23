@@ -3,15 +3,16 @@
     <div class="col-xs-4" id="educationalContainer">
         <div class="speechbubble"
              ng-repeat="daten in educational.currentEducationalPlan.competence">
-            <div class="educationalTooltip" ng-show="daten.showTooltip">{{daten.note}}</div>
+            <div class="educationalTooltip" ng-show="daten.showTooltip">{{daten.note}}<br>{{daten.dateText}}</div>
             <div class="bubble-text col-xs-12">
                 <p>
                     <span>{{daten.studentText}}</span>
-                    <br>
-                    <span>Erreicht am: {{daten.fromDate}}</span>
                 </p>
             </div>
-            <img ng-src="{{daten.img}}" alt="smallimg" class="bubble-img" ng-mouseenter="daten.showTooltip = true" ng-mouseleave="daten.showTooltip = false"/>
+            <img ng-src="{{daten.img}}" alt="smallimg" class="bubble-img" ng-mouseenter="daten.showTooltip = true" ng-mouseleave="daten.showTooltip = false">
+
+
+            </img>
         </div>
     </div>
 </div>

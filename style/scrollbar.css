@@ -1,0 +1,18 @@
+
+
+
+::-webkit-scrollbar {
+
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    display:none;
+}
+
+
+
+
+::-webkit-scrollbar-button{
+
+}

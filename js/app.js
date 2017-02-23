@@ -167,6 +167,7 @@ app.controller('MainController', function ($scope, $cookies, $window, $http, sha
             shared.datenJS.sort(function (b, a) {
                 return (new Date(a.fromDate).getTime() - new Date(b.fromDate).getTime());
             });
+
             for (var i = 0; i < shared.datenJS.length; i++) {
                 chapterId = shared.datenJS[i].chapterId;
                 if (chapterId < 10) {
@@ -179,6 +180,15 @@ app.controller('MainController', function ($scope, $cookies, $window, $http, sha
                 } else {
                     shared.datenJS[i].img += chapterId + "/competenceUndone.png";
                 }
+
+                shared.datenJS.dateText
+
+                if(shared.datenJS[i].fromDate!==null){
+                    var date = shared.datenJS[i].fromDate.split("-");
+                    shared.datenJS[i].dateText = "Du hast diese Kompetenz am " + date[2] + "." + date[1] + "." + date[0] + " Erreicht!"
+                }
+                shared.datenJS[i].showTooltip = false;
+
             }
         });
     };
@@ -349,11 +359,18 @@ app.controller('educationalController', function ($scope, $http, educational, sh
                     studentText: "",
                     note: "",
                     fromDate: "",
+                    dateText: "",
                     img: "",
                     showTooltip: false
                 };
                 educationalCompetence.studentText = currentCompetence.studentText;
                 educationalCompetence.fromDate = currentCompetence.fromDate;
+                if(educationalCompetence.fromDate !== null){
+                    var date = educationalCompetence.fromDate.split("-");
+                    educationalCompetence.dateText = "Du hast diese Kompetenz am " + date[2] + "." + date[1] + "." + date[0] + " Erreicht!"
+                }else
+
+                    console.log(educationalCompetence.dateText);
                 educationalCompetence.note = response.data[0].competences[i].note;
                 if (currentCompetence.checked) {
                     if (currentCompetence.chapterId < 10) {

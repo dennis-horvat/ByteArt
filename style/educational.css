@@ -19,11 +19,9 @@
 
 }
 
-.educationalTooltip {
-    width: 200px;
-    height: 200px;
+.educationalTooltip, .competenceTooltip {
+    width: 280px;
     position: absolute;
-    right:-200px;
     background-color: #001a3a;
     border: 3px solid white;
     border-radius:6px;
@@ -31,9 +29,17 @@
     padding:8px;
 }
 
+.educationalTooltip{
+    right:-280px;
+}
+
+.competenceTooltip {
+    right:-227px;
+}
 
 
-.educationalTooltip:before {
+
+.educationalTooltip:before, .competenceTooltip:before {
     position: absolute;
     content:"";
     width: 10px;

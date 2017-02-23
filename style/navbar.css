@@ -2,6 +2,14 @@
     cursor:pointer;
 }
 
+img.col-xs-5 {
+    left:-15px;
+}
+
+p.Dropdown-Header1 {
+    left:-40px;
+}
+
 .navbar {
   background-color: #001a3a;
   z-index: 10;

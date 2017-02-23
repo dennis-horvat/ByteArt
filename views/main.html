@@ -10,6 +10,7 @@
 
 <div class="col-xs-4" id="containerMid">
     <div class="speechbubble" ng-repeat="daten in shared.datenJS">
+        <div class="competenceTooltip" ng-show="daten.showTooltip && daten.checked">{{daten.dateText}}</div>
         <div class="bubble-text col-xs-12">
             <p>
                 <span>{{daten.studentText}}</span>
@@ -17,7 +18,7 @@
                 <span>Erreicht am: {{daten.fromDate}}</span>
             </p>
         </div>
-        <img ng-src="{{daten.img}}" alt="smallimg" class="bubble-img"/>
+        <img ng-src="{{daten.img}}" alt="smallimg" ng-mouseenter="daten.showTooltip = true" ng-mouseleave="daten.showTooltip = false" class="bubble-img"/>
     </div>
 
 </div>
