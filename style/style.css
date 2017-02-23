@@ -1,3 +1,6 @@
+body {
+  overflow:hidden;
+}
 
 .footer {
   position:fixed;
@@ -28,10 +31,12 @@
 }
 
 .split{
-  display: inline-block;
-  height: 30px;
-  width: 1px;
-  padding: 0px;
+  position:absolute;
+  height:30px;
+  top:17px;
+  right:115px;
+  display: inline;
+  margin:0px 5px;
   border-left: solid #4565ad 1px;
 }
 

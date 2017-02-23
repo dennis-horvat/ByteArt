@@ -1,18 +1,10 @@
-
-
-
-::-webkit-scrollbar {
-
-    width: 20px;
+#scrollDown, #scrollUp {
+position:fixed;
+    right:20px;
+    bottom:80px;
+    cursor: pointer;
 }
 
-::-webkit-scrollbar-track {
-    display:none;
-}
-
-
-
-
-::-webkit-scrollbar-button{
-
+#scrollUp {
+    top:80px;
 }

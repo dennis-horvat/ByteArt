@@ -1,3 +1,9 @@
+//normal Functions for JQuery
+
+/**
+ * displays the specified dropdown menue
+ * @param element button of the dropdown menue
+ */
 function showDropdownOf(element) {
     var content = $("#" + element.id);
     if (content.next().css("display") === "none") {
@@ -9,33 +15,81 @@ function showDropdownOf(element) {
 
 }
 
+/**
+ * Tests if the given string has special chars
+ * @param str gives String
+ * @returns {boolean} true, if the String has a special char, false if not
+ */
+function hasSpecialChars(str) {
+    return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+}
 
-var app = angular.module('app', ['ngCookies', 'ngRoute'])
+/**
+ * attaches the ability to scroll to the specified elements
+ */
+function attachScrolling(){
+    console.log("Startet");
+    $("#scrollUp").click(function(){
+        $("html, body").animate({
+            scrollTop: "-=125px"
+        }, {
+            duration: 100,
+            easing: "linear"
+        });
+    });
+    $("html").mousewheel(function(event){
+        console.log("WheelScroll");
+        if(event.deltaY > 0){
+            $("html, body").animate({
+                scrollTop: "-=50px"
+            }, {
+                duration: 10,
+                easing: "linear"
+            });
+        }else if(event.deltaY < 0){
+            $("html, body").animate({
+                scrollTop: "+=50px"
+            }, {
+                duration: 10,
+                easing: "linear"
+            });
+        }
+    });
 
+    $("#scrollDown").click(function(){
+        $("html, body").animate({
+            scrollTop: "+=125px"
+        }, {
+            duration: 100,
+            easing: "linear"
+        });
+    })
+}
+
+// AngularJS
+var app = angular.module('app', ['ngCookies', 'ngRoute']);
+
+
+// Angular Services
 app.service('messages', function () {
     var warningMessage = "Warning Dummy";
     var successMessage = "Success Dummy";
     var warning = false;
     var success = false;
-
-    showWarning = function (message) {
+    var showWarning = function (message) {
         this.warningMessage = message;
         this.warning = true;
     };
-
-    closeWarning = function () {
+    var closeWarning = function () {
         this.warning = false;
     };
-
-    showSuccess = function (message) {
+    var showSuccess = function (message) {
         this.successMessage = message;
         this.success = true;
     };
-
-    closeSuccess = function () {
+    var closeSuccess = function () {
         this.success = false;
     }
-
     return {
         warningMessage: warningMessage,
         successMessage: successMessage,
@@ -57,6 +111,8 @@ app.service('shared', function () {
     var placeholder = [];
     var allCompetences = [];
     var currentChapter = "";
+    var scrollUpImg = "";
+    var scrollDownImg = "";
 
     return {
         datenJS: datenJS,
@@ -65,10 +121,31 @@ app.service('shared', function () {
         selectedProfile: selectedProfile,
         placeholder: placeholder,
         allCompetences: allCompetences,
-        currentChapter: currentChapter
+        currentChapter: currentChapter,
+        scrollUpImg: scrollUpImg,
+        scrollDownImg: scrollDownImg
     }
 });
 
+app.service('educational', function () {
+    var educationalPlans = [];
+    educationalPlans[0] = {
+        competence: []
+    };
+    educationalPlans[1] = {
+        competence: []
+    };
+    educationalPlans[2] = {
+        competence: []
+    };
+    var currentEducationalPlan = educationalPlans[0];
+    return {
+        educationalPlans: educationalPlans,
+        currentEducationalPlan: currentEducationalPlan
+    };
+});
+
+// Angular Directives
 app.directive('warningMessage', function () {
     return {
         templateUrl: "directives/warningmessage.html"
@@ -80,6 +157,8 @@ app.directive('successMessage', function () {
         templateUrl: "directives/successmessage.html"
     };
 });
+
+// Angular Configurations
 
 app.config(function ($routeProvider) {
     $routeProvider.when("/", {
@@ -95,32 +174,20 @@ app.config(function ($routeProvider) {
     });
 });
 
-app.service('educational', function () {
-    var educationalPlans = [];
-    educationalPlans[0] = {
-        competence: []
-    };
-    educationalPlans[1] = {
-        competence: []
-    };
-    educationalPlans[2] = {
-        competence: []
-    };
-    var currentEducationalPlan = educationalPlans[0];
 
-
-    return {
-        educationalPlans: educationalPlans,
-        currentEducationalPlan: currentEducationalPlan
-    };
-});
+// Controller
 
 app.controller('MainController', function ($scope, $cookies, $window, $http, shared, educational) {
+    // Functions
+
     $scope.hideAllDropdowns = function () {
         $(".dropdown-button").next().css("display", "none");
     };
 
     $scope.changeEducationalPlan = function (id) {
+        $("html").css("background-color", "#8da6d6");
+        shared.scrollUpImg = "images/chapter16/scrollUp.png";
+        shared.scrollDownImg = "images/chapter16/scrollDown.png";
         educational.currentEducationalPlan = educational.educationalPlans[id];
         $scope.hideAllDropdowns();
     }
@@ -131,30 +198,44 @@ app.controller('MainController', function ($scope, $cookies, $window, $http, sha
         $(id).hover(function () {
             $(this).css("background-image", "url(" + linkActive + ")");
         }, function () {
-                $(this).css("background-image", "url(" + linkInactive + ")");
+            $(this).css("background-image", "url(" + linkInactive + ")");
         });
     };
 
     $scope.changeCompetence = function (id, checked) {
-        if(checked === undefined){
+        if (checked === undefined) {
             checked = false;
         }
         $cookies.put("currentChapter", id);
+        if (checked) {
+            if (shared.currentChapter > 0) {
+                $("#K" + shared.currentChapter + "_educational").css("background-color", $scope.chapters[shared.currentChapter - 1].strongcolor);
+            } else {
+                $("#K" + shared.currentChapter + "_educational").css("background-color", "#001a3a");
+            }
+        } else {
+            $("#K" + shared.currentChapter).css("background-color", $scope.chapters[shared.currentChapter - 1].strongcolor);
+        }
         shared.currentChapter = id;
-        if(shared.currentChapter > 0) {
+        if (shared.currentChapter > 0) {
             var usedColor = $scope.chapters[shared.currentChapter - 1].weakcolor;
-        }else{
+        } else {
             var usedColor = "#8da6d6";
         }
-        $("#backplate").css("background-color", usedColor);
-        $("#K" + id).css("background-color", usedColor);
-
-        if(shared.currentChapter > 0) {
+        $("html").css("background-color", usedColor);
+        if (checked) {
+            $("#K" + id + "_educational").css("background-color", usedColor);
+        }else{
+            $("#K" + id).css("background-color", usedColor);
+        }
+        if (shared.currentChapter > 0) {
             shared.chapterFlagPath = "/images/chapter";
             if (shared.currentChapter < 10) {
                 shared.chapterFlagPath += "0";
             }
-            shared.chapterFlagPath += (shared.currentChapter) + "/littleChapterFlag.png";
+            shared.scrollUpImg = shared.chapterFlagPath + shared.currentChapter + "/scrollUp.png";
+            shared.scrollDownImg = shared.chapterFlagPath + shared.currentChapter + "/scrollDown.png";
+            shared.chapterFlagPath += shared.currentChapter + "/littleChapterFlag.png";
         }
         fillDatenJS(checked);
         $scope.hideAllDropdowns();
@@ -183,7 +264,7 @@ app.controller('MainController', function ($scope, $cookies, $window, $http, sha
 
                 shared.datenJS.dateText
 
-                if(shared.datenJS[i].fromDate!==null){
+                if (shared.datenJS[i].fromDate !== null) {
                     var date = shared.datenJS[i].fromDate.split("-");
                     shared.datenJS[i].dateText = "Du hast diese Kompetenz am " + date[2] + "." + date[1] + "." + date[0] + " Erreicht!"
                 }
@@ -234,9 +315,9 @@ app.controller('MainController', function ($scope, $cookies, $window, $http, sha
 
 
 });
-function isValid(str) {
-    return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
-}
+
+
+
 app.controller('passwordController', function ($scope, $http, $cookies, messages) {
     $scope.messages = messages
     $scope.token = $cookies.get('token');
@@ -253,7 +334,7 @@ app.controller('passwordController', function ($scope, $http, $cookies, messages
             messages.showWarning("Das neue Passwort benötigt mindestens einen Großbuchstaben!");
         } else if ($scope.newPassword.split(/[0-9]/).length <= 1) {
             messages.showWarning("Das neue Passwort benötigt mindestens eine Ziffer!");
-        } else if (isValid($scope.newPassword)) {
+        } else if (hasSpecialChars($scope.newPassword)) {
             messages.showWarning("Das neue Passwort benötigt mindestens ein Sonderzeichen!");
         } else {
             $http.put("http://46.101.204.215:1337/api/V1/requestPasswordRecovery", {
@@ -335,8 +416,6 @@ app.controller('educationalController', function ($scope, $http, educational, sh
     $scope.closeTooltip = function (competence) {
         competence.showTooltip = false;
     };
-
-
     $http.get("http://46.101.204.215:1337/api/V1/studentcompetence",
         {headers: {Authorization: $scope.token}}).then(function (response) {
         shared.allCompetences = response.data;
@@ -365,12 +444,10 @@ app.controller('educationalController', function ($scope, $http, educational, sh
                 };
                 educationalCompetence.studentText = currentCompetence.studentText;
                 educationalCompetence.fromDate = currentCompetence.fromDate;
-                if(educationalCompetence.fromDate !== null){
+                if (educationalCompetence.fromDate !== null) {
                     var date = educationalCompetence.fromDate.split("-");
                     educationalCompetence.dateText = "Du hast diese Kompetenz am " + date[2] + "." + date[1] + "." + date[0] + " Erreicht!"
-                }else
-
-                    console.log(educationalCompetence.dateText);
+                } else
                 educationalCompetence.note = response.data[0].competences[i].note;
                 if (currentCompetence.checked) {
                     if (currentCompetence.chapterId < 10) {

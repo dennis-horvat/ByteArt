@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="style/delete-profile.css" media="screen">
     <link rel="stylesheet" href="style/messages.css" media="screen">
     <link rel="stylesheet" href="style/educational.css" media="screen">
+    <link rel="stylesheet" href="style/scrollbar.css" media="screen">
 
 
     <!-- Bootstrap core CSS -->
@@ -26,12 +27,25 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/scrollbars.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script>
+        $(function () {
+            attachScrolling();
+        });
+    </script>
 
 </head>
 <body ng-app="app" ng-controller="MainController" ng-cloak>
+
+
+<img id="scrollUp" ng-src="{{shared.scrollUpImg}}"/>
+<img id="scrollDown" ng-src="{{shared.scrollDownImg}}"/>
 <!-- Navigationsleiste oben-->
 <nav class="navbar navbar-default" role="navigation" id="header">
+
+    <!-- Trennstrich-->
+    <div class="split">
+    </div>
     <section class="container-fluid">
         <div class="row flex-items-xs-between">
             <!-- Elemente links-->
@@ -96,10 +110,10 @@
 
                         </div>
                         <a href="#/" ng-click="changeCompetence(0, true)" class="clickable"
-                           id="K0">ALLE KOMPETENZEN</a>
+                           id="K0_educational">ALLE KOMPETENZEN</a>
                         <div ng-repeat="chapter in chapters">
                             <a href="#/" ng-click="changeCompetence(chapter._id, true)" class="clickable"
-                               id="K{{chapter._id}}">{{chapter.name}}</a>
+                               id="K{{chapter._id}}_educational">{{chapter.name}}</a>
                         </div>
                     </div>
 
@@ -167,9 +181,6 @@
                     </div>
                 </div>
 
-                <!-- Trennstrich-->
-                <div class="split">
-                </div>
 
                 <div class="dropdown">
                     <button type="button" class="nav-item dropdown-button" id="help"
@@ -183,9 +194,12 @@
                                 </p>
                             </div>
                         </div>
-                        <a href="http://www.check-lehrerzimmer.com/hilfe/erste-schritte/" ng-click="hideAllDropdowns()">SO GEHT'S!</a>
-                        <a href="http://www.check-lehrerzimmer.com/tutorial/" ng-click="hideAllDropdowns()">VIDEO TUTORIALS</a>
-                        <a href="http://www.check-lehrerzimmer.com/faq/" ng-click="hideAllDropdowns()">HÄUFIG GESTELLTE FRAGEN</a>
+                        <a href="http://www.check-lehrerzimmer.com/hilfe/erste-schritte/" ng-click="hideAllDropdowns()">SO
+                            GEHT'S!</a>
+                        <a href="http://www.check-lehrerzimmer.com/tutorial/" ng-click="hideAllDropdowns()">VIDEO
+                            TUTORIALS</a>
+                        <a href="http://www.check-lehrerzimmer.com/faq/" ng-click="hideAllDropdowns()">HÄUFIG GESTELLTE
+                            FRAGEN</a>
                         <a href="http://www.check-lehrerzimmer.com/contact/" ng-click="hideAllDropdowns()">KONTAKT</a>
                     </div>
                 </div>
@@ -214,7 +228,7 @@
 </nav>
 <!-- Seiteninhalt speechbubbles-->
 
-<div id="MegaUberContent">
+<div id="ngViewContent">
     <ng-view>
 
     </ng-view>

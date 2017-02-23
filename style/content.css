@@ -1,5 +1,8 @@
+html {
+  background-color: #f7bed2;
+}
 
-#MegaUberContent {
+#ngViewContent {
   position:relative;
   margin-top:50px;
   bottom:50px;
@@ -7,32 +10,15 @@
 
 #containerMid {
   z-index: 5;
-
   height: 100%;
 }
 
-#backplate {
-  top: -100px;
-  width:2000px;
-  height:2000px;
-  background-color: #f7bed2;
-  z-index: -10;
-  position:fixed;
-}
-#containerLeft {
+#containerLeft, #containerRight {
   z-index: 1;
-}
-#containerRight {
-  z-index: 1;
-}
-@media (max-width: 1200px) {
-  #containerLeft {
-  visibility: hidden;
-  }
 }
 
 @media (max-width: 1200px) {
-  #containerRight {
+  #containerLeft, #containerRight {
   visibility: hidden;
   }
 }
@@ -54,5 +40,4 @@
 }
 .bubble-img{
   padding: 15px;
-
 }

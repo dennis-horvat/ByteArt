@@ -205,36 +205,53 @@ p.Dropdown-Header1 {
 }
 
 /* dropdown menü farben*/
+#K0_educational {
+    background-color: #001a3a;
+}
+#K1, #K1_educational { background-color: #79ab2e; }
+#K1:hover, #K1_educational:hover { background-color: #a1c153; }
 
-#K1 { background-color: #79ab2e; }
-#K1:hover { background-color: #a1c153; }
-#K2 { background-color: #c6d54f; }
-#K2:hover { background-color: #dbe283; }
-#K3 { background-color: #94c122; }
-#K3:hover { background-color: #bad151; }
-#K4 { background-color: #44b284; }
-#K4:hover { background-color: #7cc3a3; }
-#K5 { background-color: #ffdd00; }
-#K5:hover { background-color: #ffea64; }
-#K6 { background-color: #ffed98; }
-#K6:hover { background-color: #fff3d8; }
-#K7 { background-color: #fbb900; }
-#K7:hover { background-color: #ffcf53; }
-#K8 { background-color: #ef7d25; }
-#K8:hover { background-color: #f5a04c; }
-#K9 { background-color: #d60d66; }
-#K9:hover { background-color: #e35184; }
-#K10 { background-color: #ea518d; }
-#K10:hover { background-color: #ee7ba9; }
-#K11 { background-color: #f29db7; }
-#K11:hover { background-color: #f7bed2; }
-#K12 { background-color: #a62068; }
-#K12:hover { background-color: #c9427e; }
-#K13 { background-color: #008fc8; }
-#K13:hover { background-color: #4fa8da; }
-#K14 { background-color: #62c2d0; }
-#K14:hover { background-color: #94d3e5; }
-#K15 { background-color: #004077; }
-#K15:hover { background-color: #005daa; }
-#K16 { background-color: #3873b9; }
-#K16:hover { background-color: #658bc8; }
+#K2, #K2_educational { background-color: #c6d54f; }
+#K2:hover, #K2_educational:hover { background-color: #dbe283; }
+
+#K3, #K3_educational { background-color: #94c122; }
+#K3:hover, #K3_educational:hover { background-color: #bad151; }
+
+#K4, #K4_educational { background-color: #44b284; }
+#K4:hover, #K4_educational:hover { background-color: #7cc3a3; }
+
+#K5, #K5_educational { background-color: #ffdd00; }
+#K5:hover, #K5_educational:hover { background-color: #ffea64; }
+
+#K6, #K6_educational { background-color: #ffed98; }
+#K6:hover, #K6_educational:hover { background-color: #fff3d8; }
+
+#K7, #K7_educational { background-color: #fbb900; }
+#K7:hover, #K7_educational:hover { background-color: #ffcf53; }
+
+#K8, #K8_educational { background-color: #ef7d25; }
+#K8:hover, #K8_educational:hover { background-color: #f5a04c; }
+
+#K9, #K9_educational { background-color: #d60d66; }
+#K9:hover, #K9_educational:hover { background-color: #e35184; }
+
+#K10, #K10_educational { background-color: #ea518d; }
+#K10:hover, #K10_educational:hover { background-color: #ee7ba9; }
+
+#K11, #K11_educational { background-color: #f29db7; }
+#K11:hover, #K11_educational:hover { background-color: #f7bed2; }
+
+#K12, #K12_educational { background-color: #a62068; }
+#K12:hover, #K12_educational:hover { background-color: #c9427e; }
+
+#K13, #K13_educational { background-color: #008fc8; }
+#K13:hover, #K13_educational:hover { background-color: #4fa8da; }
+
+#K14, #K14_educational { background-color: #62c2d0; }
+#K14:hover, #K14_educational:hover { background-color: #94d3e5; }
+
+#K15, #K15_educational { background-color: #004077; }
+#K15:hover, #K15_educational:hover { background-color: #005daa; }
+
+#K16, #K16_educational { background-color: #3873b9; }
+#K16:hover, #K16_educational:hover { background-color: #658bc8; }

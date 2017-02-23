@@ -1,7 +1,6 @@
 @font-face { font-family: "roboto-thin"; src: url("../resources/ttf/Roboto-Thin.ttf") format("truetype"); }
 @font-face { font-family: "widolte_regular" ; src: url("../resources/ttf/Widolte_Regular.otf") format("opentype");}
 
-
 input[type="text"] {
     margin-bottom:3px;
     border-radius: 6px;
@@ -14,7 +13,6 @@ input[type="text"] {
     font-size: 13pt;
     font-family: "roboto-thin";
 }
-
 input[type="password"] {
     border-radius: 6px;
     padding-left:15px;
